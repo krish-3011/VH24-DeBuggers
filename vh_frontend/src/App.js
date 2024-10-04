@@ -12,7 +12,9 @@ import {
 const App = () => (
 <BrowserRouter>
 <Routes>
-  <Route path="/" element={<FirstPage />} />
+  <Route exact path="/" element={<FirstPage />} />
+  
+ 
 </Routes>
 </BrowserRouter>
 );
