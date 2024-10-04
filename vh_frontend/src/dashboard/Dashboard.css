@@ -1,8 +1,36 @@
-/* dark color :#1D1F2E */
-/* light color:#272938 */
-.container{
-    display: flex;
+.container,.stats-container {
+  display: flex;
   flex-direction: row;
-  background-color: #061f37;
+  height: 100vh;
+  background-color: #B5C2CA;
+}
 
+nav {
+  width: 250px; /* Example width for the NavBar */
+  background-color: #1D1F2E;
+  height: 100vh; /* Make it take the full height of the viewport */
+  position: fixed; /* Fix the position */
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Add scroll if the NavBar content exceeds the height */
+}
+
+/* The inner content should now consider the width of the fixed nav */
+.innercont {
+  margin-left: 250px; /* Add margin equal to the NavBar width */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #B5C2CA;
+  padding: 20px;
+  height: 100vh; /* Adjust height */
+  overflow-y: auto; /* Allow scrolling for inner content */
+}
+
+header {
+  width: 100%;
+}
+
+.dashboard-grid {
+  margin-top: 20px;
 }

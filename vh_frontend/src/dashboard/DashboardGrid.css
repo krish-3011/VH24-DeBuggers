@@ -1,0 +1,58 @@
+.dashboard-grid {
+  margin-left: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px 200px 200px;
+  gap: 20px;
+  padding: 20px;
+  background-color: #B5C2CA;
+}
+
+.grid-item {
+  background-color: #518596;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: calc(0.1s * var(--delay));
+}
+
+.small-box {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.large-box {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.large-box1 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.wide-box {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  background-color: #457787;
+}
