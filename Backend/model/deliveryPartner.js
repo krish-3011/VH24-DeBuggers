@@ -17,7 +17,9 @@ const deliveryPartnerSchema = new mongoose.Schema({
     },
     username: {
         type: String,
-        required: true  
+        required: true,
+        unique:true,
+        index: true   
     },
     password: {
         type: String,

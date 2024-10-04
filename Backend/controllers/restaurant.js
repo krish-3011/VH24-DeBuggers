@@ -5,8 +5,8 @@ require('../utils/passport-config.js')(passport);
 
 const indexRoute = async(req,res) => {
     let restaurants = await Restaurant.find({});
-    // res.status(200).json({deliveryPartners});
-    res.render('restaurant/listing',{restaurants});
+    res.status(200).json({deliveryPartners});
+    // res.render('restaurant/listing',{restaurants});
 }
 
 const newRoute = async (req,res)=> { 
@@ -26,7 +26,9 @@ const newRoute = async (req,res)=> {
     //adding offer to database
     restaurant = await newRestaurant.save();
     
-    res.status(200).redirect('/restaurant');
+    // res.status(200).redirect('/restaurant');
+    res.status(200).json({message : "new restaurant saved"});
+
 
 }
 
@@ -34,7 +36,15 @@ const showRoute =async (req,res)=>{
     let {id} = req.params;
 
     let restaurant = await Restaurant.findById(id);
-    res.render('restaurant/show', {restaurant});
+     if(!restaurant){
+        let err = new Error("restaurant not exsist")
+        err.status = 400
+        throw err;
+    }
+
+    //sending offer
+    // res.render('restaurant/show', {restaurant});
+    res.status(200).json(restaurant);
 
 }
 
@@ -60,7 +70,9 @@ const updateRoute = async (req,res)=> {
     }
     },{new:true}).then(console.log('Restaurant updated')).catch(err => {console.log(`not updated ${err}`)});
     
-    res.status(200).redirect('/restaurant');
+    // res.status(200).redirect('/restaurant');
+    res.status(200).json({message : "Data updated successfully "});
+
 
 }
 
@@ -77,7 +89,8 @@ const deleteRoute = async (req,res) =>{
     let {id} = req.params;
     let restaurant = await Restaurant.findByIdAndDelete(id);
 
-    res.status(200).redirect('/restaurant');
+    // res.status(200).redirect('/restaurant');
+    res.status(200).json({message : "restaurant deleted sucessfully"});
 } 
 
 
