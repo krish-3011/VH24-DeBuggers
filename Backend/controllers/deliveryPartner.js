@@ -31,8 +31,8 @@ const newRoute = async (req,res)=> {
 const showRoute =async (req,res)=>{
     let {id} = req.params;
 
-    let partener = await DeliveryPartner.findById(id);
-    res.render('deliveryPartners/update', {partener});
+    let partner = await DeliveryPartner.findById(id);
+    res.render('deliveryPartners/show', {partner});
 
 }
 
