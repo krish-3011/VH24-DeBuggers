@@ -1,7 +1,7 @@
 .stats1{
       background-color: #518596;
       height: 450px; /* Adjust height as needed */
-      width: 450px;  /* Adjust width as needed */
+      width: 390px;  /* Adjust width as needed */
       display: flex;
       justify-content: space-between;
       justify-content: center;
@@ -11,6 +11,18 @@
       color: white;
       font-weight: bold;
       border-radius: 5px;
+}
+.graphss{
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+}
+
+.feedback{
+      margin-left: 80px;
+      margin-top: 15px;
+      align-items: center;
+
 }
 
   

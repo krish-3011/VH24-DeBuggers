@@ -5,10 +5,18 @@ const StatsGrid = () =>
     {
         return(
             <div className="container">
-            <div className="stats1 "></div>
-            <div className="stats1">Orders</div>
-            <div className="stats1">Orders</div>
+            <div className='graphfeed'>
+            <div className='graphss'>
+            <div className="stats1 ">rating line graph</div>
+            <div className="stats1">profit made line graph</div>
+            <div className="stats1">efficiency</div>
             </div>
+            
+            <textarea rows={13} cols={150} className='feedback'>feedback</textarea>
+            </div>
+            
+            </div>
+            
                )
     }
     

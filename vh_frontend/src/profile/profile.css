@@ -1,7 +1,7 @@
 /* dark color :#1D1F2E */
 /* light color:#272938 */
 
-.container {
+.containerprof {
   display: flex;
   flex-direction: column;
   background-color: #061f37;
@@ -12,6 +12,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+
+}
+.headdiv{
+  margin-left: 255px;
 }
 
 .profile-content {

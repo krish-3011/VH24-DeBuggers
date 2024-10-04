@@ -1,15 +1,17 @@
 import React from "react";
 import './profile.css';
-import NavBar from "./navbar";
-import Header1 from "./header";
+import NavBar from "../dashboard/NavBar";
+import Header1 from "../dashboard/Header";
 //import profileImage from "./{CC102CCB-7D13-4DC4-9EFA-EDF9C2A00661}.png"; // Ensure path matches your image file
 
 const Profile = () => {
   return (
-    <div className="container">
+    <div className="containerprof">
       <NavBar />
       <div className="inner">
+        <div className="headdiv">
         <Header1 />
+        </div>
         <div className="profile-content">
           <div className="profile-details">
             <h3>Full Name :</h3>
