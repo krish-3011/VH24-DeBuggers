@@ -1,6 +1,7 @@
 import React from 'react';
 import FirstPage from './dashboard/First';
 import Stats from './Stats/Stats1'
+import Profile from './profile/profile';
 
 
 import {
@@ -16,6 +17,7 @@ const App = () => (
   <Route exact path="/" element={<FirstPage />} />
   <Route exact path="dashboard" element={<FirstPage />} />
   <Route exact path="stats" element={<Stats />} />
+  <Route exact path="profile" element={<Profile />} />
 
   
  
