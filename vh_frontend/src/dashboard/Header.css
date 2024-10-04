@@ -28,13 +28,17 @@
     margin-left: 20px;
     border-radius: 5px;
     color: black;
+    height: 25px;
   }
   
   .currency {
-    background-color: white;
+    background-color: #061f37;
     padding: 5px 10px;
     margin-left: 20px;
     border-radius: 5px;
+    display: flex;
+    height: 25px;
+    color: white;
   }
   
   .profile-pic {
@@ -50,4 +54,14 @@
     height: 100%;
     object-fit: cover;
   }
-  
+  .gold{
+    height: 30px;
+    background-color: transparent;
+  }
+  .badge{
+    background-color:#061f37;
+    height: 25px;
+  }
+  .token{
+    height: 25px;
+  }

@@ -24,6 +24,18 @@
     animation: fadeIn 1s ease-in-out forwards;
     animation-delay: calc(0.1s * var(--delay));
   }
+  .grid-itemss {
+    overflow: hidden;
+  background-color: #518596;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: calc(0.1s * var(--delay));
+}
   
   .small-redeem {
     grid-column: span 1;
@@ -61,5 +73,58 @@
   .backpng1{
       height: 150px;
   }
+.goldtoken
+{
+  height: 400px;
+  width:400px;
+  margin-left: 40px;
+  position: absolute;
+  margin-left: -100px;
+}
+label
+{
+  z-index: 10;
+  position: absolute;
+  font-size: 20px;
+  margin-left: 235px;
+}
+.token1
+{
+  height: 300px;
+  width: 500px;
+  margin-right: 100px;
+}
+.Xp
+{
+  height: 400px;
+  width: 500px;
+  margin-right: 125px;
+  margin-bottom: -10px;
+}
 
- 
+ .active
+ {
+  margin-right: 500px;
+  margin-bottom: 180px;
+  font-size: 20px;
+  text-decoration: underline;
+  position: absolute;
+ }
+ .lists
+ {
+  margin-left: -300px ;
+  margin-top: -100px;
+ }
+ .taskstext{
+  margin-top: -10px;
+ }
+ .redeemtext
+ {
+    border-radius: 10px;
+    height:20px;
+ }
+ .taskstxt{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ }

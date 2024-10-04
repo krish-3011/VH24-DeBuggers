@@ -1,0 +1,9 @@
+.spinny {
+    height: 250px;
+    transition: transform 1s ease-in-out; /* Defines the transition timing */
+  }
+  
+  .spinny:hover {
+    transform: rotate(80deg); /* The actual rotation */
+  }
+  
