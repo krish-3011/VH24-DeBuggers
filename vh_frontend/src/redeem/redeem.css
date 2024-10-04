@@ -1,0 +1,65 @@
+.gridredeem {
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 100px 200px 200px;
+    gap: 20px;
+    padding: 20px;
+    background-color: #B5C2CA;
+  }
+  
+  .grid-items {
+      overflow: hidden;
+    background-color: #518596;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: calc(0.1s * var(--delay));
+  }
+  
+  .small-redeem {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .large-redeem{
+    grid-column: span 2;
+    grid-row: span 2;
+  
+  }
+  
+  .wide-redeem {
+    grid-column: span 4;
+    grid-row: span 1;
+
+  }
+  
+  @keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  .grid-items:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    background-color: #457787;
+  }
+  .backpng{
+      height: 100px;
+  
+  }
+  .backpng1{
+      height: 150px;
+  }
+
+ 
