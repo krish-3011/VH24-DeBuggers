@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing</title>
+    <style>
+        table,td{
+            border : 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <% for(deliveryPartner of deliveryPartners) {%>
+            <tr>
+                <td><%= deliveryPartner %>
+                    <!-- <form action="/offers/?_method=DELETE" method="post">
+                        <button>delete</button>
+                    </form> -->
+                </td>
+                
+            </tr>
+        <% } %>
+    </table>
+    <form action="/deliveryPartner/new" method="get">
+        <button>add</button>
+    </form>
+</body>
+</html>
+
+<!-- data retrived in offers array -->

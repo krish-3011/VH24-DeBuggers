@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Badge = require('./badgesSchema.js')
+const Badge = require('../model/badgesSchema.js')
 
 const deliveryPartnerSchema = new mongoose.Schema({
     name:{
@@ -23,7 +23,7 @@ const deliveryPartnerSchema = new mongoose.Schema({
     },
     badges:{
         type : mongoose.Schema.Types.ObjectId,
-        ref : Badge,
+        ref : 'Badge',
     }
 
 });
