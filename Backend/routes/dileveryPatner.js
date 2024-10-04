@@ -16,8 +16,6 @@ router.get('/new',wrapAsync(deliveryPartner.newForm));
 router.get("/:id", wrapAsync(deliveryPartner.showRoute));
 
 
-
-
 // Update Route
 router.patch("/:id", wrapAsync(deliveryPartner.updateRoute));
 router.get('/:id/update',wrapAsync(deliveryPartner.updateForm));
