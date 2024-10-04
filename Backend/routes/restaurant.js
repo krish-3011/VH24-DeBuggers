@@ -14,7 +14,7 @@ router.get('/new',wrapAsync(restaurant.newForm));
 
 
 //login route
-router.post('/login',passport.authenticate('local', {
+router.post('/login',passport.authenticate('restaurant-local', {
     successRedirect: '/restaurant/login/success',
     failureRedirect: '/restaurant/login/fail',
     failureFlash: true

@@ -42,13 +42,13 @@ async function getData() {
                 "grade": 2
             },
         }
-    ];
+    ]
 
     try {
         const badges = await Badge.find({});
         console.log(`Badges available: ${badges.length}`); // Log the number of available badges
 
-        await DeliveryPartner.deleteMany({}); // Clear existing delivery partners
+        await DeliveryPartner.deleteMany(); // Clear existing delivery partners
 
         for (let data of dataSet) {
             // Check if badges array is not empty to avoid errors

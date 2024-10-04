@@ -1,7 +1,7 @@
 const { findByIdAndDelete } = require('../model/badges.js');
 const Restaurant = require('../model/restaurant.js');
 const passport = require('passport'); 
-require('../utils/passport-config/deliveryPartner.js')(passport);
+require('../utils/passport-config.js')(passport);
 
 const indexRoute = async(req,res) => {
     let restaurants = await Restaurant.find({});
@@ -80,12 +80,9 @@ const deleteRoute = async (req,res) =>{
     res.status(200).redirect('/restaurant');
 } 
 
-const loginRoute = async(req,res)=>{
-    console.log(req.body)
-}
 
 const loginForm = async(req,res) => {
     res.render('restaurant/loginForm')
 }
 
-module.exports = {indexRoute,newForm,newRoute,showRoute,updateForm,updateRoute,deleteRoute,loginRoute,loginForm};
+module.exports = {indexRoute,newForm,newRoute,showRoute,updateForm,updateRoute,deleteRoute,loginForm};

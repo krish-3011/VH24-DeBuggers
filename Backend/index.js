@@ -1,8 +1,5 @@
 const express = require('express');
 const app = express();
-const PORT = 8080;
-const DB_URL = "mongodb://localhost:27017/VCET_Hack24";
-const SECURE_CODE = 'DeBuggers'
 const mongoose = require('mongoose');
 const deliveryPartner = require('./routes/dileveryPatner.js');
 const restaurant = require('./routes/restaurant.js');
@@ -12,6 +9,11 @@ const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
+require('dotenv').config();
+
+const PORT = process.env.PORT
+const DB_URL = process.env.DB_URL
+const SECURE_CODE = process.env.SECURE_CODE
 
 //connectin to database
 async function main(){
