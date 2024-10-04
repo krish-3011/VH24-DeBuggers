@@ -1,0 +1,108 @@
+/* General container for the dashboard */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Grid layout for the stats at the top */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background-color: #1e1e2f;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .card h1 {
+    font-size: 36px;
+  }
+  
+  .card h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .growth {
+    font-size: 14px;
+  }
+  
+  .positive {
+    color: green;
+  }
+  
+  .negative {
+    color: red;
+  }
+  
+  /* Traffic Section */
+  .traffic-section {
+    margin-bottom: 20px;
+  }
+  
+  .chart-placeholder {
+    height: 200px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+  }
+  
+  /* Tracking and Shipment Section */
+  .tracking-shipment {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .tracking-card, .shipment-info {
+    background-color: #1e1e2f;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+  }
+  
+  .map-placeholder {
+    height: 150px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+  }
+  
+  .status {
+    color: green;
+    font-weight: bold;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .tracking-shipment {
+      flex-direction: column;
+    }
+  
+    .tracking-card, .shipment-info {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
