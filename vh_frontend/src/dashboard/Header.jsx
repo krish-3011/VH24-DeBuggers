@@ -6,8 +6,9 @@ const Header1 = () => {
     <div className="header-container">
       <input type="text" placeholder="Search..." className="search-bar" />
       <div className='headercontent'>
-      <div className="badge">Gold</div>
-      <div className="currency">500</div>
+      <div className="badge" ><img className="gold"src="source/GOLDRANK.png" alt="img"  /> </div>
+      <div className="currency">
+        <img className='token' src="source/TOKEN.png" alt="" />500</div>
       <div className="profile-pic">
         </div>
         <img src="path_to_profile_picture" alt="Profile" />

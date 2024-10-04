@@ -1,0 +1,76 @@
+/* Container that centers the login box */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: transparent;
+    backdrop-filter: blur(3px); /* Slightly transparent background */
+    position: fixed; /* Fixed position to overlay on top */
+    top: 0;
+    left: 0px;
+    margin-left: 280px;
+    width: 100%;
+    z-index: 9999; /* High z-index to ensure it overlays on top */
+  }
+  
+  /* The box that contains the login form */
+  .login-box {
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/607/478/331/ruby-development-gradient-geometry-wallpaper-preview.jpg" );
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    padding: 50px;
+    width: 300px;
+    max-width: 100%;
+    position: relative; /* Ensure the box stays within the container */
+    margin-left: -400px;
+  }
+  
+  /* Title styling */
+  .login-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+  
+  /* Label styling */
+  .login-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #000000;
+    margin-left: -8px;
+  }
+  
+  /* Input field styling */
+  .login-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    margin-left: -11px;
+  }
+  
+  /* Button styling */
+  .login-button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #9d4bd433;
+    
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Button hover effect */
+  .login-button:hover {
+    background-color: #9a40cf;
+  }

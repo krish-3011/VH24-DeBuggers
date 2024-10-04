@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import './profile.css';
 import NavBar from "../dashboard/NavBar";
 import Header1 from "../dashboard/Header";
+import LoginComponent from "../login/login";
+import Cookies from 'js-cookie'; // Import js-cookie
+
 //import profileImage from "./{CC102CCB-7D13-4DC4-9EFA-EDF9C2A00661}.png"; // Ensure path matches your image file
 
 const Profile = () => {
+    const [showLoginPage, setShowLoginPage] = useState(true);
+    const [profileData, setProfileData] = useState(null);
+  
+    const handleLoginSubmit = (success) => {
+      if (success) {
+        const userCookie = Cookies.get('user'); // Read session cookie
+        if (userCookie) {
+          const data = JSON.parse(userCookie);
+          setProfileData(data);
+          setShowLoginPage(false);
+        }
+      } else {
+        setShowLoginPage(true);
+      }
+    };
+  
+    useEffect(() => {
+      const userCookie = Cookies.get('user'); // Read session cookie
+      if (userCookie) {
+        const data = JSON.parse(userCookie);
+        setProfileData(data);
+        setShowLoginPage(false); // Hide login page if user data is found
+      } else {
+        setShowLoginPage(true); // Show login page if no user data is found
+      }
+    }, []);
+
+
+
+
   return (
     <div className="containerprof">
       <NavBar />
@@ -40,6 +73,15 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      {showLoginPage ? (
+        <LoginComponent onSubmit={handleLoginSubmit} />
+      ) : (
+        profileData ? (
+          <Profile />
+        ) : (
+          <div>Loading profile data...</div>
+        )
+      )}
     </div>
   );
 };
