@@ -9,10 +9,9 @@ const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
-const cors = require('cors')
 require('dotenv').config();
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT
 const DB_URL = process.env.DB_URL
 const SECURE_CODE = process.env.SECURE_CODE
 
