@@ -6,17 +6,20 @@ const wrapAsync = require('../utils/wrapAsync.js');
 // Index Route
 router.get("/", wrapAsync(deliveryPartner.indexRoute));
 
+// Show Route
+router.get("/:id", wrapAsync(deliveryPartner.showRoute));
+
 // New Route
 router.post("/",wrapAsync(deliveryPartner.newRoute));
-router.get('/new',wrapAsync(deliveryPartner.newForm))
+router.get('/new',wrapAsync(deliveryPartner.newForm));
 
-// // Show Route
-// router.get("/:id", wrapAsync(companyFun.showRoute));
 
-// // Update Route
-// router.patch("/:id", wrapAsync(companyFun.updateRoute));
+// Update Route
+router.patch("/:id", wrapAsync(deliveryPartner.updateRoute));
+router.get('/:id/update',wrapAsync(deliveryPartner.updateForm));
 
-// // Delete Route
-// router.delete("/:id", wrapAsync(companyFun.deleteRoute));
+
+// Delete Route
+router.delete("/:id", wrapAsync(deliveryPartner.deleteRoute));
 
 module.exports = router;

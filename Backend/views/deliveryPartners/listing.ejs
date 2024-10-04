@@ -15,9 +15,15 @@
         <% for(deliveryPartner of deliveryPartners) {%>
             <tr>
                 <td><%= deliveryPartner %>
-                    <!-- <form action="/offers/?_method=DELETE" method="post">
+                    <form action="/deliveryPartner/<%= deliveryPartner._id %>/update" method="get">
+                        <button>update</button>
+                    </form>
+                    <form action="/deliveryPartner/<%= deliveryPartner._id %>?_method=DELETE" method="post">
                         <button>delete</button>
-                    </form> -->
+                    </form>
+                    <form action="/deliveryPartner/<%= deliveryPartner._id %>" method="get">
+                        <button>show</button>
+                    </form>
                 </td>
                 
             </tr>

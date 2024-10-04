@@ -1,3 +1,4 @@
+const { findByIdAndDelete } = require('../model/badgesSchema');
 const DeliveryPartner = require('../model/deliveryPatnerSchema');
 
 const indexRoute = async(req,res) => {
@@ -23,12 +24,59 @@ const newRoute = async (req,res)=> {
     //adding offer to database
     partner = await newPartner.save();
     
-    res.status(200).redirect('/');
+    res.status(200).redirect('/deliveryPartner');
+
+}
+
+const showRoute =async (req,res)=>{
+    let {id} = req.params;
+
+    let partener = await DeliveryPartner.findById(id);
+    res.render('deliveryPartners/update', {partener});
+
+}
+
+const updateRoute = async (req,res)=> { 
+
+    //retriving data from request body
+    let partner = req.body;
+    let {id} = req.params;
+    const oldPartner =await DeliveryPartner.findById(id);
+
+    if(!oldPartner){
+        let err = new Error("Partner not found...")
+        err.status = 400
+        throw err;
+    }
+    //creating instance of Offer model
+    const newPartner = DeliveryPartner.findByIdAndUpdate(id,{$set:{
+        name : partner.name,
+        username : partner.partner,
+        password : partner.password,
+        ex : { level : oldPartner.ex.level , grade : oldPartner.ex.grade},
+        badges : oldPartner.badges
+    }
+    },{new:true}).then(console.log('partner updated')).catch(err => {console.log(`not updated ${err}`)});
+    
+    res.status(200).redirect('/deliveryPartner');
 
 }
 
 const newForm = (req,res) => {
     res.render('deliveryPartners/new');
 }
+const updateForm = async (req,res) => {
+    let {id} = req.params;
+    let deliveryPartner = await DeliveryPartner.findById(id)
+    res.render('deliveryPartners/update',deliveryPartner);
+}
 
-module.exports = {indexRoute,newForm,newRoute};
+const deleteRoute = async (req,res) =>{
+    let {id} = req.params;
+    let parte=ner = await DeliveryPartner.findByIdAndDelete(id);
+
+    res.status(200).redirect('/deliveryPartner');
+} 
+
+
+module.exports = {indexRoute,newForm,newRoute,updateForm,updateRoute,deleteRoute,showRoute};
