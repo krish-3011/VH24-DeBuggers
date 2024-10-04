@@ -1,4 +1,4 @@
-const DB_URL = "mongodb://localhost:27017/VCET_Hack24";
+const DB_URL = "mongodb+srv://krishpatelco22d2:HOv5zLXvqnQYQieo@cluster0.nuyp6.mongodb.net/VCETBackend";
 const mongoose = require('mongoose');
 const Restaurant = require('../../model/restaurant.js');
 const Customer = require('../../model/customer.js');
