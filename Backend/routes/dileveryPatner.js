@@ -20,10 +20,11 @@ router.post('/login',passport.authenticate('deliveryPartner-local', {
 }),wrapAsync(deliveryPartner.loginRoute));
 router.get('/loginForm',wrapAsync(deliveryPartner.loginForm));
 router.get('/login/success',(req,res) => {
-    res.render('deliveryPartners/success');
+    res.status(200).json({message : "Login successful"});
 });
 router.get('/login/fail',(req,res) => {
-    res.render('deliveryPartners/fail');
+        res.status(400).json({message : "Login unsuccessful"});
+
 })
 
 //login route

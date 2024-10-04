@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const deliveryPartner = require('./routes/dileveryPatner.js');
+const leaderBoard = require('./routes/leaderBoard.js')
 const restaurant = require('./routes/restaurant.js');
 const methodOverride = require('method-override');
 const path = require('path');
@@ -73,6 +74,7 @@ app.use(passport.session());
 // Routes
 app.use('/deliveryPartner', deliveryPartner);
 app.use('/restaurant', restaurant);
+app.use('/leaderBoard',leaderBoard);
 
 // Start the server
 app.listen(PORT, () => {
