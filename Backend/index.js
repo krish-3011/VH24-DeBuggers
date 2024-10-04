@@ -12,9 +12,13 @@ async function main(){
 
 main().then(console.log('Database Connected')).catch((err)=>{console.log(`error in connecting database ${err}`)})
 
-app.get('/',()=>{
-    console.log('done');
-});
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, "/public")));
+
+//routes
+app.use('/deliveryPartner',)
 
 app.listen(PORT,()=>{
     console.log(`Server is listng on port ${PORT}`);
