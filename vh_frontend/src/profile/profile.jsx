@@ -14,6 +14,8 @@ const Profile = () => {
         </div>
         <div className="profile-content">
           <div className="profile-details">
+
+            <img className="profile-pic" src="https://t4.ftcdn.net/jpg/05/56/29/91/360_F_556299120_Z7SNJd3KpsN6hii0KmW7Z6TTNVkDwc77.jpg" alt="img"></img>
             <h3>Full Name :</h3>
             <p>Rajen Dasgupta Sengupta Ghosh</p>
 
@@ -27,8 +29,14 @@ const Profile = () => {
             <p>1</p>
           </div>
 
-          <div className="profile-picture">
-            <img src="" alt="Profile" />
+          <div className="two-cards">
+            <div className="card1">
+              <h3>Region:</h3>
+              <p>Mumbai</p>
+            </div>
+            <div className="card2">
+              <p>hello</p>
+            </div>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@
 }
 
 .grid-item {
+    overflow: hidden;
   background-color: #518596;
   color: white;
   display: flex;
@@ -56,3 +57,11 @@
   transition: transform 0.3s ease;
   background-color: #457787;
 }
+.backpng{
+    height: 100px;
+
+}
+.backpng1{
+    height: 150px;
+}
+
