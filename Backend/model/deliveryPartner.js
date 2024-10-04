@@ -1,49 +1,60 @@
 const mongoose = require('mongoose');
-const Customer = require('./customer.js');
-const DeliveryPartner = require('./deliveryPartner.js');
-const Restaurant = require('./restaurant.js');
+const Badge = require('./badges.js');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
-const timeSchema = new mongoose.Schema({
-    et: {
-        type: Date,
-        required: true  
-    },
-    dt: {
-        type: Date
+const badgeSchema = new mongoose.Schema({
+    type: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Badge' 
     }
 });
 
-const orderSchema = new mongoose.Schema({
-    customerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Customer',
+const deliveryPartnerSchema = new mongoose.Schema({
+    name: {
+        type: String,
         required: true  
     },
-    deliveryPartnerID: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'DeliveryPartner',
+    username: {
+        type: String,
         required: true  
     },
-    restaurantId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Restaurant',
+    password: {
+        type: String,
         required: true  
     },
-    orderValue: {
-        type: Number,
-        required: true  
+    ex: {
+        level: {
+            type: Number,
+            required: true,  
+            default: 1  
+        },
+        grade: {
+            type: Number,
+            required: true,  
+            default: 1  
+        }
     },
-    rating: {
-        type: Number,
-        min: 0,  
-        max: 5   
-    },
-    time: {
-        type: timeSchema,
-        required: true  
+    badges: {
+        type: [badgeSchema],
+        default: []  
     }
 });
 
-const Order = mongoose.model('Order', orderSchema);
+//hasing password
+deliveryPartnerSchema.pre('save' , async function(next) {
+    if (this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password, 10);
+    }
+    next();
 
-module.exports = Order;
+});
+
+// Method to check password
+deliveryPartnerSchema.methods.comparePassword = function(candidatePassword) {
+    return bcrypt.compare(candidatePassword, this.password);
+};
+
+const DeliveryPartner = mongoose.model('DeliveryPartner', deliveryPartnerSchema);
+
+module.exports = DeliveryPartner;

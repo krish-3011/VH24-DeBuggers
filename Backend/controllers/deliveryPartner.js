@@ -1,5 +1,7 @@
-const { findByIdAndDelete } = require('../model/badgesSchema');
-const DeliveryPartner = require('../model/deliveryPatnerSchema');
+const { findByIdAndDelete } = require('../model/badges.js');
+const DeliveryPartner = require('../model/deliveryPartner.js');
+const passport = require('passport'); 
+require('../utils/passport-config/deliveryPartner.js')(passport);
 
 const indexRoute = async(req,res) => {
     let deliveryPartners = await DeliveryPartner.find({}).populate('badges');
@@ -78,5 +80,8 @@ const deleteRoute = async (req,res) =>{
     res.status(200).redirect('/deliveryPartner');
 } 
 
+const loginRoute = async(req,res)=>{
+    console.log(req.body)
+}
 
-module.exports = {indexRoute,newForm,newRoute,updateForm,updateRoute,deleteRoute,showRoute};
+module.exports = {indexRoute,newForm,newRoute,updateForm,updateRoute,deleteRoute,showRoute,loginRoute};

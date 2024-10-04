@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 
 const menuSchema = new mongoose.Schema({
@@ -35,6 +37,20 @@ const restaurantSchema = new mongoose.Schema({
         default: []  
     }
 });
+
+//hasing password
+restaurantSchema.pre('save' , async function(next) {
+    if (this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password, 10);
+    }
+    next();
+
+});
+
+// Method to check password
+restaurantSchema.methods.comparePassword = function(candidatePassword) {
+    return bcrypt.compare(candidatePassword, this.password);
+};
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 

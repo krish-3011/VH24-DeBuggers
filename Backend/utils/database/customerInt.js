@@ -1,6 +1,6 @@
 const DB_URL = "mongodb://localhost:27017/VCET_Hack24";
 const mongoose = require('mongoose');
-const Customer = require('../../model/customerSchema.js')
+const Customer = require('../../model/customer.js')
 
 
 async function main(){
@@ -12,37 +12,41 @@ main().then(console.log('Database Connected')).catch((err)=>{console.log(`error 
 
 function getData(){
     const dataSet =  [
-        {
+      {
+          "name": "John Doe",
+          "username": "johndoe123",
+          "password": "john@123",
+          "address": [
+              "123 Main Street, Springfield, IL",
+              "456 Oak Street, Springfield, IL"
+          ]
+      },
+      {
           "name": "Alice Johnson",
           "username": "alice_j",
-          "password": "securePassword1",
-          "address": "123 Maple Street, Springfield, IL"
-        },
-        {
-          "name": "Bob Smith",
-          "username": "bob_smith",
-          "password": "securePassword2",
-          "address": "456 Oak Avenue, Metropolis, NY"
-        },
-        {
-          "name": "Charlie Brown",
-          "username": "charlie_b",
-          "password": "securePassword3",
-          "address": "789 Pine Road, Gotham, NJ"
-        },
-        {
-          "name": "Diana Prince",
-          "username": "diana_p",
-          "password": "securePassword4",
-          "address": "321 Birch Boulevard, Themyscira, WA"
-        },
-        {
-          "name": "Ethan Hunt",
-          "username": "ethan_h",
-          "password": "securePassword5",
-          "address": "654 Cedar Lane, Los Angeles, CA"
-        }
-      ]
+          "password": "alice@456",
+          "address": [
+              "789 Birch Lane, Boston, MA"
+          ]
+      },
+      {
+          "name": "Michael Smith",
+          "username": "mike_smith",
+          "password": "mike@789",
+          "address": [
+              "321 Pine Avenue, Denver, CO",
+              "654 Elm Street, Denver, CO"
+          ]
+      },
+      {
+          "name": "Sara Williams",
+          "username": "sara_w",
+          "password": "sara@101",
+          "address": [
+              "987 Maple Street, Austin, TX"
+          ]
+      }
+  ]
 
     let newCus;
 

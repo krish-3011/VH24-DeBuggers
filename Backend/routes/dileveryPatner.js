@@ -12,6 +12,9 @@ router.post("/",wrapAsync(deliveryPartner.newRoute));
 router.get('/new',wrapAsync(deliveryPartner.newForm));
 
 
+//login route
+router.get('/login',wrapAsync(deliveryPartner.loginRoute))
+
 // Show Route
 router.get("/:id", wrapAsync(deliveryPartner.showRoute));
 
@@ -23,5 +26,6 @@ router.get('/:id/update',wrapAsync(deliveryPartner.updateForm));
 
 // Delete Route
 router.delete("/:id", wrapAsync(deliveryPartner.deleteRoute));
+
 
 module.exports = router;
