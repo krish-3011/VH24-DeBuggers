@@ -1,7 +1,7 @@
-const DB_URL = "mongodb://localhost:27017/VCET_Hack24";
+const DB_URL = "mongodb+srv://krishpatelco22d2:HOv5zLXvqnQYQieo@cluster0.nuyp6.mongodb.net/VCETBackend";
 const mongoose = require('mongoose');
-const DeliveryPartner = require('../../model/deliveryPatnerSchema.js');
-const Badge = require('../../model/badgesSchema.js');
+const DeliveryPartner = require('../../model/deliveryPartner.js');
+const Badge = require('../../model/badges.js');
 
 async function main() {
     try {
@@ -17,56 +17,38 @@ async function getData() {
     const dataSet = [
         {
             "name": "John Doe",
-            "username": "john_doe",
-            "password": "securePassword123",
+            "username": "johndoe123",
+            "password": "hashedPassword1",
             "ex": {
-                "level": 5,
-                "grade": 2
-            },
-        },
-        {
-            "name": "Jane Smith",
-            "username": "jane_smith",
-            "password": "anotherSecurePassword456",
-            "ex": {
-                "level": 3,
-                "grade": 1
-            },
-        },
-        {
-            "name": "Alice Johnson",
-            "username": "alice_j",
-            "password": "alicePass789",
-            "ex": {
-                "level": 4,
+                "level": 2,
                 "grade": 3
             },
         },
         {
-            "name": "Bob Brown",
-            "username": "bob_brown",
-            "password": "bobSecure123",
+            "name": "Alice Smith",
+            "username": "alicesmith456",
+            "password": "hashedPassword2",
             "ex": {
-                "level": 2,
-                "grade": 1
+                "level": 5,
+                "grade": 4
             },
         },
         {
-            "name": "Charlie Green",
-            "username": "charlie_g",
-            "password": "charliePass456",
+            "name": "Bob Johnson",
+            "username": "bobjohnson789",
+            "password": "hashedPassword3",
             "ex": {
-                "level": 1,
-                "grade": 1
+                "level": 3,
+                "grade": 2
             },
         }
-    ];
+    ]
 
     try {
         const badges = await Badge.find({});
         console.log(`Badges available: ${badges.length}`); // Log the number of available badges
 
-        await DeliveryPartner.deleteMany({}); // Clear existing delivery partners
+        await DeliveryPartner.deleteMany(); // Clear existing delivery partners
 
         for (let data of dataSet) {
             // Check if badges array is not empty to avoid errors

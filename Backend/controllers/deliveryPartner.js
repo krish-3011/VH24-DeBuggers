@@ -1,10 +1,12 @@
-const { findByIdAndDelete } = require('../model/badgesSchema');
-const DeliveryPartner = require('../model/deliveryPatnerSchema');
+const { findByIdAndDelete } = require('../model/badges.js');
+const DeliveryPartner = require('../model/deliveryPartner.js');
+const passport = require('passport'); 
+require('../utils/passport-config.js')(passport);
 
 const indexRoute = async(req,res) => {
     let deliveryPartners = await DeliveryPartner.find({}).populate('badges');
-    // res.status(200).json({deliveryPartners});
-    res.render('deliveryPartners/listing',{deliveryPartners});
+    res.status(200).json({deliveryPartners});
+    // res.render('deliveryPartners/listing',{deliveryPartners});
 }
 
 const newRoute = async (req,res)=> { 
@@ -15,7 +17,7 @@ const newRoute = async (req,res)=> {
     //creating instance of Offer model
     const newPartner = new DeliveryPartner({
         name : partner.name,
-        username : partner.partner,
+        username : partner.username,
         password : partner.password,
         ex : { level : 1 , grade : 0},
         badges : null
@@ -24,7 +26,8 @@ const newRoute = async (req,res)=> {
     //adding offer to database
     partner = await newPartner.save();
     
-    res.status(200).redirect('/deliveryPartner');
+    // res.status(200).redirect('/deliveryPartner');
+    res.status(200).json({message : "new user saved"});
 
 }
 
@@ -32,7 +35,15 @@ const showRoute =async (req,res)=>{
     let {id} = req.params;
 
     let partner = await DeliveryPartner.findById(id);
-    res.render('deliveryPartners/show', {partner});
+    // res.render('deliveryPartners/show', {partner});
+    if(!partner){
+        let err = new Error("User not exsist")
+        err.status = 400
+        throw err;
+    }
+
+    //sending offer
+    res.status(200).json(partner);
 
 }
 
@@ -51,14 +62,15 @@ const updateRoute = async (req,res)=> {
     //creating instance of Offer model
     const newPartner = DeliveryPartner.findByIdAndUpdate(id,{$set:{
         name : partner.name,
-        username : partner.partner,
+        username : partner.username,
         password : partner.password,
         ex : { level : oldPartner.ex.level , grade : oldPartner.ex.grade},
         badges : oldPartner.badges
     }
     },{new:true}).then(console.log('partner updated')).catch(err => {console.log(`not updated ${err}`)});
     
-    res.status(200).redirect('/deliveryPartner');
+    // res.status(200).redirect('/deliveryPartner');
+    res.status(200).json({message : "Data updated successfully "});
 
 }
 
@@ -73,10 +85,15 @@ const updateForm = async (req,res) => {
 
 const deleteRoute = async (req,res) =>{
     let {id} = req.params;
-    let parte=ner = await DeliveryPartner.findByIdAndDelete(id);
+    let partner = await DeliveryPartner.findByIdAndDelete(id);
 
-    res.status(200).redirect('/deliveryPartner');
+    // res.status(200).redirect('/deliveryPartner');
+    res.status(200).json({message : "User deleted sucessfully"});
+
 } 
 
+const loginForm = async(req,res) => {
+    res.render('deliveryPartners/loginForm')
+}
 
-module.exports = {indexRoute,newForm,newRoute,updateForm,updateRoute,deleteRoute,showRoute};
+module.exports = {indexRoute,newForm,newRoute,updateForm,updateRoute,deleteRoute,loginForm,showRoute};

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing</title>
+    <style>
+        table,td{
+            border : 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <% for(restaurant of restaurants) {%>
+            <tr>
+                <td><%= restaurant %>
+                    <form action="/restaurant/<%= restaurant._id %>/update" method="get">
+                        <button>update</button>
+                    </form>
+                    <form action="/restaurant/<%= restaurant._id %>?_method=DELETE" method="post">
+                        <button>delete</button>
+                    </form>
+                    <form action="/restaurant/<%= restaurant._id %>" method="get">
+                        <button>show</button>
+                    </form>
+                </td>
+                
+            </tr>
+        <% } %>
+    </table>
+    <form action="/restaurant/new" method="get">
+        <button>add</button>
+    </form>
+</body>
+</html>
+
+<!-- data retrived in offers array -->
