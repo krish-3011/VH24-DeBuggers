@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update rider</title>
+</head>
+<body>
+    <h1>Add new offer</h1>
+    <form action="/deliveryPartner/<%= _id %>/?_method=PATCH" method="post">
+        <label> name : </label> <input type="text" name="name" value = "<%= name %>"> <br><br>
+        <label>username : </label> <input type="text" name="username" value = "<%= username %>"> <br><br>
+        <label>password : </label> <input type="password" name="password" value = "<%= password %>"><br><br>
+        <br>
+        <button>submit</button>
+    </form>   
+</body>
+
+</html>
