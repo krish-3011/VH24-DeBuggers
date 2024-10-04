@@ -21,11 +21,6 @@ async function main(){
     await mongoose.connect(DB_URL);
     
 }
-Middleware
-app.use(cors({
-    origin: ['https://scettnp-frontend.onrender.com','http://192.168.21.3:3000/'], // Specify your frontend origin
-    credentials: true // Allow cookies to be sent with requests
-}));
 
 main().then(console.log('Database Connected')).catch((err)=>{console.log(`error in connecting database ${err}`)})
 
