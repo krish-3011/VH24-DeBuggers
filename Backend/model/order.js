@@ -17,9 +17,7 @@ const orderSchema = new mongoose.Schema({
     customerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Customer',
-        required: true,
-        unique:true,
-        index: true   
+        required: true 
     },
     deliveryPartnerID: {
         type: mongoose.Schema.Types.ObjectId,

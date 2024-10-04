@@ -5,7 +5,7 @@ require('../utils/passport-config.js')(passport);
 
 const indexRoute = async(req,res) => {
     let restaurants = await Restaurant.find({});
-    res.status(200).json({deliveryPartners});
+    res.status(200).json({restaurants});
     // res.render('restaurant/listing',{restaurants});
 }
 
