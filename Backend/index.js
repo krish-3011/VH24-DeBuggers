@@ -9,6 +9,7 @@ const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
+const cors = require('cors')
 require('dotenv').config();
 
 const PORT = process.env.PORT
@@ -20,6 +21,11 @@ async function main(){
     await mongoose.connect(DB_URL);
     
 }
+// Middleware
+app.use(cors({
+    origin: ['https://scettnp-frontend.onrender.com','http://localhost:3000'], // Specify your frontend origin
+    credentials: true // Allow cookies to be sent with requests
+}));
 
 main().then(console.log('Database Connected')).catch((err)=>{console.log(`error in connecting database ${err}`)})
 
