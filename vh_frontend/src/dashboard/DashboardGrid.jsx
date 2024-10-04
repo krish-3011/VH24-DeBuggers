@@ -1,13 +1,20 @@
 import React from 'react';
 import './DashboardGrid.css';
-import MapComponent from './MapComponent'; // Assuming you have a MapComponent for Google Maps
+
+import MapComponent from './MapComponent'; 
 
 const DashboardGrid = () => {
   return (
     <div className="dashboard-grid">
-      <div className="grid-item small-box">No of Orders Delivered</div>
-      <div className="grid-item small-box">Current Achievements</div>
-      <div className="grid-item small-box">Points Earned Today</div>
+      <div className="grid-item small-box">
+         <img className="backpng"src="source/orderplaced.png" alt="img"  /> 
+        No of Orders Delivered
+        </div>
+      <div className="grid-item small-box">
+        <img className="backpng1"src="source/currachh.png" alt="img" />
+        Current Achievements
+    </div>
+      <div className="grid-item small-box"><img className="backpng1"src="source/earnpoint.png" alt="img" />points Earned Today</div>
       <div className="grid-item large-box">Orders</div>
 
       {/* Map section (can render Google Maps or any component inside) */}

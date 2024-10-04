@@ -7,7 +7,7 @@ const StatsGrid = () =>
             <div className="container">
             <div className='graphfeed'>
             <div className='graphss'>
-            <div className="stats1 ">rating line graph</div>
+            <div className="stats1 "><LineGraph className="lineargraph"/></div>
             <div className="stats1">profit made line graph</div>
             <div className="stats1">efficiency</div>
             </div>
