@@ -49,7 +49,7 @@ const LoginComponent = ({ onSubmit }) => {
         <h2 className="login-title">Login</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="username" className="login-label">Enrollment</label>
+            <label htmlFor="username" className="login-label">Username</label>
             <input
               type="text"
               id="username"
@@ -61,7 +61,7 @@ const LoginComponent = ({ onSubmit }) => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="login-label">Date</label>
+            <label htmlFor="password" className="login-label">Password</label>
             <input
               type="password"
               id="password"

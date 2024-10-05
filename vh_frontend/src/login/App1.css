@@ -38,7 +38,8 @@
   /* Label styling */
   .login-label {
     display: block;
-    margin-bottom: 8px;
+    margin-top: -27px;
+    margin-bottom: 10px;
     font-size: 20px;
     color: #000000;
     margin-left: -8px;
@@ -47,10 +48,10 @@
   /* Input field styling */
   .login-input {
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     font-size: 16px;
     margin-left: -11px;
   }
@@ -72,5 +73,5 @@
   
   /* Button hover effect */
   .login-button:hover {
-    background-color: #9a40cf;
+    background-color: #9911e8;
   }

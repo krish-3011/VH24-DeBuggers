@@ -5,12 +5,12 @@
   grid-template-rows: 100px 200px 200px;
   gap: 20px;
   padding: 20px;
-  background-color: #B5C2CA;
+  background-color: #1D1F2E;
 }
 
 .grid-item {
     overflow: hidden;
-  background-color: #518596;
+  background-color: #1D1F2E;;
   color: white;
   display: flex;
   justify-content: center;
@@ -55,7 +55,7 @@
 .grid-item:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
-  background-color: #457787;
+  background-color:#30334a;;
 }
 .backpng{
     height: 100px;
