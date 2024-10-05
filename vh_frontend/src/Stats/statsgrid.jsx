@@ -14,7 +14,7 @@ const StatsGrid = () =>
             <div className="stats1"><PieChart/></div>
             </div>
             
-            <textarea rows={13} cols={150} className='feedback'>feedback</textarea>
+          {/*  <textarea rows={13} cols={150} className='feedback'>feedback</textarea>*/}
             </div>
             
             </div>

@@ -14,7 +14,7 @@ const Redeem = () =>
         const [showLoginPage, setShowLoginPage] = useState(true); // State for showing login page
         const [profileData, setProfileData] = useState(null);     // State for storing profile data
       
-        // Handle login submission
+       
         const handleLoginSubmit = (success) => {
           if (success) {
             const userCookie = Cookies.get('user');  // Read session cookie
@@ -45,7 +45,7 @@ return (
     <NavBar/>
     <div className="innercont">
     <Header1/>
-    {showLoginPage ? (
+     {showLoginPage ? (
         <LoginComponent onSubmit={handleLoginSubmit} />
       ) : (
         profileData ? (
@@ -53,7 +53,7 @@ return (
         ) : (
           <div>Loading profile data...</div>
         )
-      )}
+      )} 
 
     
     </div>
