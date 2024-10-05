@@ -40,6 +40,9 @@ const deliveryPartnerSchema = new mongoose.Schema({
     badges: {
         type: [badgeSchema],
         default: []  
+    },
+    orders:{
+        type : Number
     }
 });
 
