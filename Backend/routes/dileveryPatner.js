@@ -21,8 +21,11 @@ router.post('/login',passport.authenticate('deliveryPartner-local', {
 }),wrapAsync(deliveryPartner.loginRoute));
 router.get('/loginForm',wrapAsync(deliveryPartner.loginForm));
 router.get('/login/success',async (req,res) => {
-    let {username , password} = req.body;
-    let deliveryPartner = await DeliveryPartner.findOne({username : username});
+    let credential = req.body;
+    let deliveryPartner = await DeliveryPartner.findOne({username : credential.username});
+    if (!deliveryPartner) {
+        return res.status(404).json({ message: 'Delivery Partner not found' });
+    }
     res.status(200).json({deliveryPartner});
 });
 router.get('/login/fail',(req,res) => {

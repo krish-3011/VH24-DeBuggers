@@ -26,12 +26,12 @@ const deliveryPartnerSchema = new mongoose.Schema({
         required: true  
     },
     ex: {
-        level: {
+        token: {
             type: Number,
             required: true,  
             default: 1  
         },
-        grade: {
+        xp: {
             type: Number,
             required: true,  
             default: 1  

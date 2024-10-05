@@ -3,9 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/',async (req,res)=>{
-    let leaders = await DeliveryPartner.find({}).sort({'ex.grade' : -1});
+    let leaders = await DeliveryPartner.find({}).sort({'ex.xp' : -1});
 
-    res.status(200).send({top:leaders.slice(0,3)});
+    res.status(200).send({top:leaders});
 })
 
 module.exports = router;

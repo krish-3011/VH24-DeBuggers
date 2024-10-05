@@ -26,8 +26,8 @@ const newRoute = async (req,res)=> {
     //adding offer to database
     restaurant = await newRestaurant.save();
     
-    // res.status(200).redirect('/restaurant');
-    res.status(200).json({message : "new restaurant saved"});
+    res.status(200).redirect('/restaurant');
+    // res.status(200).json({message : "new restaurant saved"});
 
 
 }
@@ -43,8 +43,8 @@ const showRoute =async (req,res)=>{
     }
 
     //sending offer
-    // res.render('restaurant/show', {restaurant});
-    res.status(200).json(restaurant);
+    res.render('restaurant/show', {restaurant});
+    // res.status(200).json(restaurant);
 
 }
 
@@ -70,8 +70,8 @@ const updateRoute = async (req,res)=> {
     }
     },{new:true}).then(console.log('Restaurant updated')).catch(err => {console.log(`not updated ${err}`)});
     
-    // res.status(200).redirect('/restaurant');
-    res.status(200).json({message : "Data updated successfully "});
+    res.status(200).redirect('/restaurant');
+    // res.status(200).json({message : "Data updated successfully "});
 
 
 }
@@ -89,8 +89,8 @@ const deleteRoute = async (req,res) =>{
     let {id} = req.params;
     let restaurant = await Restaurant.findByIdAndDelete(id);
 
-    // res.status(200).redirect('/restaurant');
-    res.status(200).json({message : "restaurant deleted sucessfully"});
+    res.status(200).redirect('/restaurant');
+    // res.status(200).json({message : "restaurant deleted sucessfully"});
 } 
 
 

@@ -25,7 +25,7 @@ const newRoute = async (req, res) => {
         deliveryPartnerId: deliveryPartner._id,
         orderValue: order.orderValue,
         rating: order.rating,
-        time:{et:order.et , dt:order.dt}, // Ensure these are converted to numbers
+        time:{et:order.et , dt:order.dt}, 
         distance: order.distance
     });
 
