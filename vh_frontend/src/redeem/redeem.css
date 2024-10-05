@@ -26,15 +26,19 @@
   }
   .grid-itemss {
     overflow: hidden;
-  background-color: #1d4163;
-  color: white;
-  border-radius: 10px;
-  font-size: 16px;
-  padding: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: calc(0.1s * var(--delay));
+    background-color: #1d4163;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: calc(0.1s * var(--delay));
+
 }
   
   .small-redeem {
@@ -79,14 +83,14 @@
   width:150px;
   margin-left: 40px;
   position: absolute;
-  margin-left: -100px;
+  margin-left: -150px;
 }
 label
 {
   z-index: 10;
   position: absolute;
   font-size: 20px;
-  margin-left: 235px;
+  margin-left: 165px;
 }
 .token1
 {
@@ -149,5 +153,6 @@ label
   background-color: gold; /* Background color of the progress bar */
   transition: width 0.5s; /* Smooth transition for width changes */
   border-radius: 5px; /* Rounded corners */
-  margin-top: 5px; /* Space between label and progress bar */
+  margin-top: 80px; /* Space between label and progress bar */
+  margin-left: 40px;
 }

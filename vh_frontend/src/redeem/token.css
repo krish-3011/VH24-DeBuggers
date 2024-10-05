@@ -1,0 +1,56 @@
+.shop-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .items-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
+    gap: 20px; /* Add some spacing between the items */
+    margin-top: 20px;
+  }
+  
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .item-name {
+    flex: 2;
+    text-align: left;
+    color: black;
+  }
+  
+  .item-cost {
+    flex: 1;
+    text-align: center;
+    color: black;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .add-tokens {
+    margin-top: 20px;
+  }
+  
+  .add-tokens button {
+    background-color: #FF6347;
+  }
+  

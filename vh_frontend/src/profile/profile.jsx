@@ -50,10 +50,10 @@ const Profile = () => {
           <div className="profile-content">
             <div className="profile-details">
               <h3>Full Name :</h3>
-              <p>{profileData?.fullName || "Rajen Dasgupta Sengupta Ghosh"}</p>
+              <p>{profileData?.fullName || "john doe"}</p>
 
               <h3>Email :</h3>
-              <p>{profileData?.email || "rajen@gmail.com"}</p>
+              <p>{profileData?.email || "john-doe@gmail.com"}</p>
 
               <h3>Joined On :</h3>
               <p>{profileData?.joinedOn || "2022-03-25"}</p>

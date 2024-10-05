@@ -21,7 +21,7 @@ const DashboardGrid = () => {
       <img className="Maps1"src="source/maps1.jpg" alt="img"  />  {/* Use your MapComponent to render the Google Map here */}
       </div>
 
-      <div className="grid-item wide-box ">Leaderboard</div>
+    
       <div className="grid-item wide-box ">Recent Shipments</div>
     </div>
   );
