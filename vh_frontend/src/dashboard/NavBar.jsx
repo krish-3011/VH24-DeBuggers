@@ -7,7 +7,7 @@ const NavBar = () => {
     { name: "Dashboard", icon: "⬜" },
     { name: "Stats", icon: "📦" },
     { name: "Redeem", icon: "📍" },
-    { name: "Team", icon: "🧾" },
+    { name: "Leaderboard", icon: "🧾" },
     { name: "Statements", icon: "📊" },
     { name: "Profile", icon: "⚙️" },
     { name: "Support", icon: "🎧" },

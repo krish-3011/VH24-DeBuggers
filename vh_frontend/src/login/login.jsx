@@ -27,7 +27,7 @@ const LoginComponent = ({ onSubmit }) => {
         const jsonData = await response.json();
         console.log(jsonData);
         // Set cookie with an expiration time of 1 minute
-        Cookies.set('user', JSON.stringify(jsonData), { expires: 1 / 1440 }); // 1 minute = 1/1440 day
+        Cookies.set('user', JSON.stringify(jsonData), { expires: 1  }); // 1 minute = 1/1440 day
         setLoading(false);
         onSubmit(true); // Notify parent component of successful login
       } else {
