@@ -31,7 +31,7 @@ const deliveryPartnerSchema = new mongoose.Schema({
             required: true,  
             default: 1  
         },
-        grade: {
+        xp: {
             type: Number,
             required: true,  
             default: 1  
