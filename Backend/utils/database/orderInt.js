@@ -22,7 +22,8 @@ async function getData(){
           "time": {
               "et": "2024-09-15T12:30:00Z",
               "dt": "2024-09-15T13:00:00Z"
-          }
+          },
+          "distance" : 5
           
       },
       {
@@ -31,7 +32,8 @@ async function getData(){
           "time": {
               "et": "2024-09-16T14:15:00Z",
               "dt": "2024-09-16T14:50:00Z"
-          }
+          },
+          "distance" : 2
       },
       {
           "orderValue": 18.90,
@@ -39,7 +41,8 @@ async function getData(){
           "time": {
               "et": "2024-09-17T17:00:00Z",
               "dt": "2024-09-17T17:30:00Z"
-          }
+          },
+          "distance" : 10
       },
       {
           "orderValue": 32.50,
@@ -47,7 +50,8 @@ async function getData(){
           "time": {
               "et": "2024-09-18T10:00:00Z",
               "dt": "2024-09-18T10:30:00Z"
-          }
+          },
+          "distance" : 2.1
       }
   ]
       let customers = await Customer.find({});

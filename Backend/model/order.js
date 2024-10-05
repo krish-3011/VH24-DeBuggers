@@ -19,7 +19,7 @@ const orderSchema = new mongoose.Schema({
         ref: 'Customer',
         required: true 
     },
-    deliveryPartnerID: {
+    deliveryPartnerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'DeliveryPartner',
         required: true  
@@ -41,6 +41,9 @@ const orderSchema = new mongoose.Schema({
     time: {
         type: timeSchema,
         required: true  
+    },
+    distance:{
+        type : Number
     }
 });
 

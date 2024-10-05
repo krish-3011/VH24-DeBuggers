@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const deliveryPartner = require('../controllers/deliveryPartner.js');
+const DeliveryPartner = require('../model/deliveryPartner.js')
 const passport = require('passport');
 const wrapAsync = require('../utils/wrapAsync.js');
 
@@ -19,8 +20,10 @@ router.post('/login',passport.authenticate('deliveryPartner-local', {
     failureFlash: true
 }),wrapAsync(deliveryPartner.loginRoute));
 router.get('/loginForm',wrapAsync(deliveryPartner.loginForm));
-router.get('/login/success',(req,res) => {
-    res.status(200).json({message : "Login successful"});
+router.get('/login/success',async (req,res) => {
+    let {username , password} = req.body;
+    let deliveryPartner = await DeliveryPartner.findOne({username : username});
+    res.status(200).json({deliveryPartner});
 });
 router.get('/login/fail',(req,res) => {
         res.status(400).json({message : "Login unsuccessful"});
