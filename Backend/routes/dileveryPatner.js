@@ -14,20 +14,30 @@ router.post("/",wrapAsync(deliveryPartner.newRoute));
 router.get('/new',wrapAsync(deliveryPartner.newForm));
 
 //login route
-router.post('/login',passport.authenticate('deliveryPartner-local', {
+
+// Handle POST request for login using passport
+router.post('/login', passport.authenticate('deliveryPartner-local', {
     successRedirect: '/deliveryPartner/login/success',
     failureRedirect: '/deliveryPartner/login/fail',
     failureFlash: true
-}),wrapAsync(deliveryPartner.loginRoute));
-router.get('/loginForm',wrapAsync(deliveryPartner.loginForm));
-router.get('/login/success',async (req,res) => {
-    let credential = req.body;
-    let deliveryPartner = await DeliveryPartner.findOne({username : credential.username});
+}));
+
+// Render login form
+router.get('/loginForm', wrapAsync(deliveryPartner.loginForm));
+
+// Handle success route after login (credentials are already verified by passport)
+router.get('/login/success', async (req, res) => {
+    // Delivery partner is already authenticated, and details are available in req.user
+    let deliveryPartner = req.user;
+
     if (!deliveryPartner) {
         return res.status(404).json({ message: 'Delivery Partner not found' });
     }
-    res.status(200).json({deliveryPartner});
+
+    // No need for additional password check here, as passport already authenticated the user
+    res.status(200).json({ deliveryPartner });
 });
+
 router.get('/login/fail',(req,res) => {
         res.status(400).json({message : "Login unsuccessful"});
 
