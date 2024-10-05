@@ -75,8 +75,8 @@
   }
 .goldtoken
 {
-  height: 400px;
-  width:400px;
+  height: 150px;
+  width:150px;
   margin-left: 40px;
   position: absolute;
   margin-left: -100px;
@@ -90,15 +90,15 @@ label
 }
 .token1
 {
-  height: 300px;
+  height: 150px;
   width: 500px;
-  margin-right: 100px;
+  margin-right: 200px;
 }
 .Xp
 {
-  height: 400px;
+  height: 200px;
   width: 500px;
-  margin-right: 125px;
+  margin-right: 200px;
   margin-bottom: -10px;
 }
 
@@ -117,6 +117,7 @@ label
  }
  .taskstext{
   margin-top: -10px;
+  color: white;
  }
  .redeemtext
  {
@@ -128,3 +129,25 @@ label
   flex-direction: column;
   gap: 10px;
  }
+ .mission-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0; /* Space between mission items */
+}
+
+.mission-item label {
+  margin-left: 20px; /* Space between checkbox and label */
+}
+
+.completed {
+  text-decoration: line-through; /* Strikethrough for completed tasks */
+  color: gray; /* Gray color for completed tasks */
+}
+.progress-bar {
+  width: 0; /* Set initial width to 0 */
+  height: 10px; /* Height of the progress bar */
+  background-color: gold; /* Background color of the progress bar */
+  transition: width 0.5s; /* Smooth transition for width changes */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 5px; /* Space between label and progress bar */
+}
