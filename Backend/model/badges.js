@@ -3,9 +3,7 @@ const mongoose = require('mongoose');
 const badgesSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
-        unique:true,
-        index: true
+        required: true
     }
 });
 
