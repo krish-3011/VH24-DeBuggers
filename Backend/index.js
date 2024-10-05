@@ -1,9 +1,8 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const deliveryPartner = require('./routes/dileveryPatner.js');
 const leaderBoard = require('./routes/leaderBoard.js');
-const order = require('./routes/order.js')
+const order = require('./routes/order.js');
 const restaurant = require('./routes/restaurant.js');
 const methodOverride = require('method-override');
 const path = require('path');
@@ -14,14 +13,12 @@ const flash = require('connect-flash');
 const cors = require('cors');
 require('dotenv').config();
 
-const PORT = process.env.PORT;
+const app = express();
+
+// Environment variables
+const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
 const SECURE_CODE = process.env.SECURE_CODE;
-
-// Connecting to database
-async function main() {
-    await mongoose.connect(DB_URL);
-}
 
 // Whitelist of allowed origins
 const whitelist = ['https://vh24-debuggers-frontend.onrender.com'];
@@ -40,13 +37,17 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
 };
 
-// ** Use CORS with the specified options **
-app.use(cors(corsOptions));  // This is where the CORS configuration is applied
+// Use CORS with the specified options
+app.use(cors(corsOptions));
 
+// Connecting to the database
+async function main() {
+    await mongoose.connect(DB_URL);
+}
 main()
     .then(() => console.log('Database Connected'))
     .catch((err) => {
-        console.log(`Error in connecting database: ${err}`);
+        console.log(`Error in connecting to database: ${err}`);
     });
 
 app.set('view engine', 'ejs');
@@ -59,12 +60,12 @@ app.use(flash());
 
 // Set up session
 app.use(session({
-    secret: SECURE_CODE, 
+    secret: SECURE_CODE,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({   
-        mongoUrl: DB_URL,        
-        collectionName: 'sessions'  
+    store: MongoStore.create({
+        mongoUrl: DB_URL,
+        collectionName: 'sessions'
     })
 }));
 
@@ -75,8 +76,8 @@ app.use(passport.session());
 // Routes
 app.use('/deliveryPartner', deliveryPartner);
 app.use('/restaurant', restaurant);
-app.use('/leaderBoard',leaderBoard);
-app.use('/order',order);
+app.use('/leaderBoard', leaderBoard);
+app.use('/order', order);
 
 // Start the server
 app.listen(PORT, () => {
