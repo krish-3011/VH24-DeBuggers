@@ -42,3 +42,9 @@ header {
 .tilt-card {
   z-index: -2; /* Higher than the sidebar */
 }
+
+.Maps1
+{
+    width: 600px;
+    height: 200px;
+}
