@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App1.css'
+import './App1.css';
 import Cookies from 'js-cookie'; // Import js-cookie
 
 const LoginComponent = ({ onSubmit }) => {
@@ -14,29 +14,40 @@ const LoginComponent = ({ onSubmit }) => {
     setError(null);
 
     try {
+      // Sending POST request to /deliveryPartner/login
       let response = await fetch("https://vh24-debuggers.onrender.com/deliveryPartner/login", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        credentials: 'include', // Ensure credentials are included
+        credentials: 'include', // Ensure credentials are included for cross-site cookies
         body: JSON.stringify({ username: username, password: password })
       });
 
+      // If response is OK, handle success
       if (response.ok) {
         const jsonData = await response.json();
-        console.log(jsonData);
-        // Set cookie with an expiration time of 1 minute
-        Cookies.set('user', JSON.stringify(jsonData), { expires: 1  }); // 1 minute = 1/1440 day
+        console.log('Login successful:', jsonData);
+
+        // Set cookie with the login data, expiration time of 1 minute (1/1440 day)
+        Cookies.set('user', JSON.stringify(jsonData), { expires: 1 / 1440 });
         setLoading(false);
-        onSubmit(true); // Notify parent component of successful login
+
+        // Notify parent component that login was successful
+        onSubmit(true);
+
+        // Optionally, redirect the user to another page after successful login
+        // window.location.href = '/dashboard';
+
       } else {
+        // Handle failure case with a specific error message
         const result = await response.json();
-        setError(result.message);
+        setError(result.message || 'Login failed. Please check your credentials.');
         setLoading(false);
         onSubmit(false); // Notify parent component of failed login
       }
     } catch (error) {
+      // Handle network or other unexpected errors
       setError('An error occurred. Please try again.');
       setLoading(false);
       onSubmit(false); // Notify parent component of failed login
@@ -55,7 +66,7 @@ const LoginComponent = ({ onSubmit }) => {
               id="username"
               className="login-input"
               value={username}
-              title="enter username"
+              title="Enter username"
               onChange={(e) => setUsername(e.target.value)}
               required
             />
@@ -79,6 +90,7 @@ const LoginComponent = ({ onSubmit }) => {
             {loading ? 'Loading...' : 'Submit'}
           </button>
         </form>
+        {/* Show error message if any */}
         {error && <div className="error-message">{error}</div>}
       </div>
     </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import './DashboardGrid.css';
 
-import MapComponent from './MapComponent'; 
 
 const DashboardGrid = () => {
   return (
@@ -19,7 +18,7 @@ const DashboardGrid = () => {
 
       {/* Map section (can render Google Maps or any component inside) */}
       <div className="grid-item large-box1 ">
-        <MapComponent /> {/* Use your MapComponent to render the Google Map here */}
+      <img className="Maps1"src="source/maps1.jpg" alt="img"  />  {/* Use your MapComponent to render the Google Map here */}
       </div>
 
       <div className="grid-item wide-box ">Leaderboard</div>
