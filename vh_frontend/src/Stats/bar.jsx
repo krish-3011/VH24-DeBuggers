@@ -22,13 +22,13 @@ class BarGraph extends Component {
 			animationEnabled: true,
 			theme: "light2",
 			title:{
-				text: "Evening Sales in a Restaurant"
+				text: "Profit Earned"
 			},
 			axisX: {
 				valueFormatString: "DDD"
 			},
 			axisY: {
-				prefix: "$"
+				prefix: ""
 			},
 			toolTip: {
 				shared: true
@@ -44,13 +44,13 @@ class BarGraph extends Component {
 				xValueFormatString: "DD, MMM",
 				yValueFormatString: "$#,##0",
 				dataPoints: [
-					{ x: new Date(2018, 5, 25), y: 56 },
-					{ x: new Date(2018, 5, 26), y: 45 },
-					{ x: new Date(2018, 5, 27), y: 71 },
-					{ x: new Date(2018, 5, 28), y: 41 },
-					{ x: new Date(2018, 5, 29), y: 60 },
-					{ x: new Date(2018, 5, 30), y: 75 },
-					{ x: new Date(2018, 6, 1), y: 98 }
+					{ x: new Date(2018, 5, 25), y: 560 },
+					{ x: new Date(2018, 5, 26), y: 450 },
+					{ x: new Date(2018, 5, 27), y: 710 },
+					{ x: new Date(2018, 5, 28), y: 410 },
+					{ x: new Date(2018, 5, 29), y: 600 },
+					{ x: new Date(2018, 5, 30), y: 750 },
+					{ x: new Date(2018, 6, 1), y: 980 }
 				]
 			}]
 		}

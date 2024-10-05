@@ -9,20 +9,16 @@ class PieChart extends Component {
 			animationEnabled: true,
 			exportEnabled: false,
 			theme: "light1",
-			title:{
-				text: "Trip Expenses"
+			title: {
+				text: "Efficiency"
 			},
 			data: [{
 				type: "pie",
 				indexLabel: "{label}: {y}%",		
 				startAngle: -90,
 				dataPoints: [
-					{ y: 20, label: "Airfare" },
-					{ y: 24, label: "Food & Drinks" },
-					{ y: 20, label: "Accomodation" },
-					{ y: 14, label: "Transportation" },
-					{ y: 12, label: "Activities" },
-					{ y: 10, label: "Misc" }	
+					{ y: 20, label: "efficiency", color: "rgba(255, 0, 0, 0.5)" }, // Red with 50% transparency
+					{ y: 24, color: "white" } // Default color for other slices
 				]
 			}]
 		}

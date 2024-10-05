@@ -43,15 +43,15 @@ const Stats1 = () =>
             <div className="innercont">
             <Header1/>
 
-            {showLoginPage ? (
+             {showLoginPage ? (
         <LoginComponent onSubmit={handleLoginSubmit} />
       ) : (
-        profileData ? (
+        profileData ? ( 
             <StatsGrid/>
         ) : (
           <div>Loading profile data...</div>
         )
-      )}
+      )} 
             
             </div>
            
