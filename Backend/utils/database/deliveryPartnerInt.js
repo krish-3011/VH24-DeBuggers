@@ -23,6 +23,7 @@ async function getData() {
                 "token": 2,
                 "xp": 150
             },
+            "orders" : 10
         },
         {
             "name": "Alice Smith",
