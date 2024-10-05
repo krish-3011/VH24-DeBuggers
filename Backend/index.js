@@ -20,25 +20,10 @@ const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
 const SECURE_CODE = process.env.SECURE_CODE;
 
-// Whitelist of allowed origins
-const whitelist = ['https://vh24-debuggers-frontend.onrender.com'];
-
-// Set up the CORS options
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);  // Allow the request if it's in the whitelist
-        } else {
-            callback(new Error('Not allowed by CORS'));  // Block the request if it's not in the whitelist
-        }
-    },
-    credentials: true,  // Allow credentials like cookies to be sent in requests
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
-};
-
-// Use CORS with the specified options
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: ['https://vh24-debuggers-frontend.onrender.com'], // Specify your frontend origin
+    credentials: true // Allow cookies to be sent with requests
+}));
 
 // Connecting to the database
 async function main() {
