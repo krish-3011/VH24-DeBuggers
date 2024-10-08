@@ -9,7 +9,7 @@ async function main() {
         console.log('Database Connected');
         await getData(); // Ensure we wait for getData to finish
     } catch (err) {
-        console.log(`Error in connecting database: ${err}`);
+        console.log("Error in connecting database: ${err}");
     }
 }
 
@@ -20,8 +20,8 @@ async function getData() {
             "username": "johndoe123",
             "password": "hashedPassword1",
             "ex": {
-                "level": 2,
-                "grade": 3
+                "token": 2,
+                "xp": 150
             },
             "orders" : 10
         },
@@ -30,8 +30,8 @@ async function getData() {
             "username": "alicesmith456",
             "password": "hashedPassword2",
             "ex": {
-                "level": 5,
-                "grade": 4
+                "token": 5,
+                "xp": 250
             },
         },
         {
@@ -39,15 +39,34 @@ async function getData() {
             "username": "bobjohnson789",
             "password": "hashedPassword3",
             "ex": {
-                "level": 3,
-                "grade": 2
+                "token": 3,
+                "xp": 500
+            },
+        },
+        {
+            "name": "Krish Patel",
+            "username": "krishpatelco22",
+            "password": "hashedPassword4",
+            "ex": {
+                "token": 1,
+                "xp": 700
+            },
+        },
+        {
+            "name": "Rahul Kumar",
+            "username": "rahulkumar123",
+            "password": "hashedPassword4",
+            "ex": {
+                "token": 10,
+                "xp": 800
             },
         }
+
     ]
 
     try {
         const badges = await Badge.find({});
-        console.log(`Badges available: ${badges.length}`); // Log the number of available badges
+        console.log("Badges available: ${badges.length}"); // Log the number of available badges
 
         await DeliveryPartner.deleteMany(); // Clear existing delivery partners
 
@@ -57,7 +76,7 @@ async function getData() {
                 // Assign a random badge
                 const randomBadge = badges[Math.floor(Math.random() * badges.length)]._id;
                 data['badges'] = randomBadge;
-                console.log(`Assigned badge ${randomBadge} to ${data.name}`); // Log assigned badge
+                console.log("Assigned badge ${randomBadge} to ${data.name}"); // Log assigned badge
             } else {
                 console.log('No badges available to assign.');
                 data['badges'] = null; // Or handle as necessary
@@ -68,7 +87,7 @@ async function getData() {
 
             // Save the delivery partner and await its completion
             await newPartner.save();
-            console.log(`Delivery partner ${data.name} saved successfully.`);
+            console.log("Delivery partner ${data.name} saved successfully.");
         }
     } catch (err) {
         console.error('Error while processing data:', err);
