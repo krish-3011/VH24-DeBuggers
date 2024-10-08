@@ -2,8 +2,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const DeliveryPartner = require('../model/deliveryPartner.js');
 const Restaurant = require('../model/restaurant.js');
 
+
 module.exports = function(passport) {
-    // Delivery Partner Local Strategy
     passport.use('deliveryPartner-local', new LocalStrategy({
         usernameField: 'username',
         passwordField: 'password'
@@ -29,8 +29,6 @@ module.exports = function(passport) {
             return done(err);
         }
     }));
-
-    // Restaurant Local Strategy
     passport.use('restaurant-local', new LocalStrategy({
         usernameField: 'username',
         passwordField: 'password'
@@ -57,6 +55,7 @@ module.exports = function(passport) {
         }
     }));
 
+<<<<<<< HEAD
     // Serialize user (Both DeliveryPartner and Restaurant use the same serialization)
     passport.serializeUser((user, done) => {
         console.log('Serializing user with ID:', user._id);
@@ -64,19 +63,28 @@ module.exports = function(passport) {
     });
 
     // Deserialize user (Check if user is a DeliveryPartner or Restaurant)
+=======
+    passport.serializeUser((user, done) => {
+        done(null, user.id); // Will serialize either Restaurant or DeliveryPartner
+    });
+    
+>>>>>>> parent of 3df27de (new commit)
     passport.deserializeUser(async (id, done) => {
-        console.log('Deserializing user with ID:', id);
         try {
             // Try to find the user as a restaurant first
             const restaurant = await Restaurant.findById(id);
             if (restaurant) {
+<<<<<<< HEAD
                 console.log('Restaurant found:', restaurant.username);
+=======
+>>>>>>> parent of 3df27de (new commit)
                 return done(null, restaurant);
             }
 
             // Try to find the user as a delivery partner
             const deliveryPartner = await DeliveryPartner.findById(id);
             if (deliveryPartner) {
+<<<<<<< HEAD
                 console.log('Delivery Partner found:', deliveryPartner.username);
                 return done(null, deliveryPartner);
             }
@@ -86,6 +94,14 @@ module.exports = function(passport) {
         } catch (err) {
             console.error('Error deserializing user:', err);
             return done(err);
+=======
+                return done(null, deliveryPartner);
+            }
+            done(new Error("User not found"));
+        } catch (err) {
+            done(err);
+>>>>>>> parent of 3df27de (new commit)
         }
     });
+    
 };
