@@ -30,9 +30,10 @@ main();
 
 // Setting up CORS to allow all origins
 app.use(cors({
-    origin: '*', // Allow requests from any domain
-    methods: ['GET', 'POST', 'PUT','PATCH', 'DELETE'],
-    credentials: true // If you're using cookies or authentication
+    origin: '*', // The allowed origin
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],      // Allowed HTTP methods
+    credentials: true, // This allows cookies to be sent with requests
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
   }));
 
 // Setting up Express configurations
