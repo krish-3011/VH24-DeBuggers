@@ -58,6 +58,7 @@ module.exports = function(passport) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Serialize user (Both DeliveryPartner and Restaurant use the same serialization)
     passport.serializeUser((user, done) => {
         console.log('Serializing user with ID:', user._id);
@@ -65,6 +66,12 @@ module.exports = function(passport) {
     });
 
     // Deserialize user (Check if user is a DeliveryPartner or Restaurant)
+=======
+    passport.serializeUser((user, done) => {
+        done(null, user.id); // Will serialize either Restaurant or DeliveryPartner
+    });
+    
+>>>>>>> parent of 3df27de (new commit)
 =======
     passport.serializeUser((user, done) => {
         done(null, user.id); // Will serialize either Restaurant or DeliveryPartner
@@ -91,7 +98,10 @@ module.exports = function(passport) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 console.log('Restaurant found:', restaurant.username);
+=======
+>>>>>>> parent of 3df27de (new commit)
 =======
 >>>>>>> parent of 3df27de (new commit)
 =======
@@ -104,6 +114,7 @@ module.exports = function(passport) {
             // Try to find the user as a delivery partner
             const deliveryPartner = await DeliveryPartner.findById(id);
             if (deliveryPartner) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -137,7 +148,11 @@ module.exports = function(passport) {
         } catch (err) {
             done(err);
 >>>>>>> parent of 3df27de (new commit)
+=======
+                return done(null, deliveryPartner);
+            }
+            done(new Error("User not found"));
+        } catch (err) {
+            done(err);
+>>>>>>> parent of 3df27de (new commit)
         }
-    });
-    
-};
