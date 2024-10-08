@@ -4,7 +4,7 @@ import './Header.css'; // Make sure to create this CSS file for styles
 const Header1 = () => {
   return (
     <div className="header-container">
-      <input type="text" placeholder="Search..." className="search-bar" />
+    <h1 className='Teamheading'>DEBUGGERS</h1>
       <div className='headercontent'>
       <div className="badge" ><img className="gold"src="source/GOLDRANK.png" alt="img"  /> </div>
       <div className="currency">

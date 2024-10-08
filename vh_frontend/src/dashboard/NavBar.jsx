@@ -9,8 +9,7 @@ const NavBar = () => {
     { name: "Redeem", icon: "📍" },
     { name: "Leaderboard", icon: "🧾" },
     { name: "Statements", icon: "📊" },
-    { name: "Profile", icon: "⚙️" },
-    { name: "Support", icon: "🎧" },
+    { name: "Profile", icon: "⚙️" }
   ];
 
   return (
