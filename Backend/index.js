@@ -34,11 +34,6 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT','PATCH', 'DELETE'],
     credentials: true // If you're using cookies or authentication
   }));
-  app.options('*', cors({
-    origin: 'https://vh24-debuggers-frontend.onrender.com',
-    methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE'],
-    credentials: true
-  }));
 
 // Setting up Express configurations
 app.set("view engine", "ejs");
