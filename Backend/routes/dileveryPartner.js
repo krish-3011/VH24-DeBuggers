@@ -29,7 +29,7 @@ router.get('/loginForm', wrapAsync(deliveryPartner.loginForm));
 router.get('/login/success', async (req, res) => {
     // Delivery partner is already authenticated, and details are available in req.user
     let deliveryPartner = req.user;
-    console.log(deliveryPartner)
+
     if (!deliveryPartner) {
         return res.status(404).json({ message: 'Delivery Partner not found' });
     }
