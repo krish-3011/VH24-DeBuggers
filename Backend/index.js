@@ -77,6 +77,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Middleware to check req.user
+app.use((req, res, next) => {
+    console.log('Current user:', req.user); // Check if req.user is populated
+    next();
+});
+
 // Routes
 app.use('/deliveryPartner', deliveryPartner);  // Make sure the file exists
 app.use('/restaurant', restaurant);
