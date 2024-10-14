@@ -30,17 +30,19 @@ main();
 
 // Setting up CORS to allow all origins
 app.use(cors({
-    origin: '*', // The allowed origin
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],      // Allowed HTTP methods
-    credentials: true, // This allows cookies to be sent with requests
-    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-  }));
-  app.options('*', cors({
     origin: 'https://vh24-debuggers-frontend.onrender.com',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-  }));
-  
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    credentials: true,
+    allowedHeaders: [
+        'Content-Type',
+        'Authorization',
+        'sec-ch-ua',
+        'sec-ch-ua-mobile',
+        'sec-ch-ua-platform',
+        'Referer',
+        'User-Agent'
+    ],
+}));
 
 // Setting up Express configurations
 app.set("view engine", "ejs");
