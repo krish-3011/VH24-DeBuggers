@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://vh24-debuggers.onrender.com"
+  "proxy": "https://vh24-debuggers.onrender.com , https://localhost:8080"
 }
