@@ -28,21 +28,30 @@ async function main() {
 
 main();
 
-// Setting up CORS to allow all origins
+// General CORS setup for all routes
 app.use(cors({
+    origin: 'https://vh24-debuggers-frontend.onrender.com',  // Allow only this frontend origin
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],       // Allowed HTTP methods
+    credentials: true,                                        // Allow credentials (cookies, etc.)
+    allowedHeaders: [
+        'Content-Type', 
+        'Authorization', 
+        'sec-ch-ua', 
+        'sec-ch-ua-mobile', 
+        'sec-ch-ua-platform', 
+        'Referer', 
+        'User-Agent'
+    ] // List any other headers the frontend might send
+}));
+
+// Handle OPTIONS preflight for all routes
+app.options('*', cors({
     origin: 'https://vh24-debuggers-frontend.onrender.com',
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    credentials: true,
-    allowedHeaders: [
-        'Content-Type',
-        'Authorization',
-        'sec-ch-ua',
-        'sec-ch-ua-mobile',
-        'sec-ch-ua-platform',
-        'Referer',
-        'User-Agent'
-    ],
+    credentials: true
 }));
+
+// Continue with the rest of your middleware and routes setup here
 
 // Setting up Express configurations
 app.set("view engine", "ejs");
