@@ -15,7 +15,7 @@ const LoginComponent = ({ onSubmit }) => {
 
     try {
       // Sending POST request to /deliveryPartner/login
-      let response = await fetch("https://vh24-debuggers.onrender.com/deliveryPartner/login", {
+      let response = await fetch("https://localhost:8080/deliveryPartner/login", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
